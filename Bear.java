@@ -59,6 +59,8 @@ public class Bear {
         img[7][3] = '~';
         img[7][4] = '~';
         img[7][5] = '~';
+        img[7][7] = 'A';
+        img[7][8] = 'G';
 
         // speech bubble
         img[4][7] = '<';
@@ -70,4 +72,5 @@ public class Bear {
     }
 }
 //}
+
 
