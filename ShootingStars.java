@@ -4,57 +4,47 @@ public class ShootingStars {
     static final Random rand = new Random();
 
     public static void main(String[] args) throws Exception {
-        while (true) {
-            boolean choice = rand.nextBoolean();
-            char[][] star = makeStar();
-            char[][] asterisk = makeAsterisk();
-            int num = rand.nextInt(10);
 
-            if (choice == true) {
-                System.out.print(" ".repeat(num));
-                for (int i = 0; i < star.length; i++) {
-                    for (int l = 0; l < star[i].length; l++) {
-                        System.out.print(star[i][l]);
-                        star[i][0] = '|';
-                        if (i<9){
-                        star[i+1][0] = '\u26E7';
-                        }
-                    }
-                    num = rand.nextInt(10);
+        char[][] total = new char[20][40];
+        for (int i = 0; i < total.length; i++) {
+            for (int l = 0; l < total[i].length; l++) {
+                total[i][l] = ' ';
+            }
+        }
+        for (int j = 0; j < 6; j++) {
+            loadStar(total);
+            for (int i = 0; i < total.length; i++) {
+                for (int l = 0; l < total[i].length; l++) {
+                    System.out.print(total[i][l]);
                 }
-            } else if (choice == false) {
-                System.out.print(" ".repeat(num));
-                for (int i = 0; i < asterisk.length; i++) {    
-                    for (int l = 0; l < asterisk[i].length; l++) {
-                        System.out.print(asterisk[i][l]);
-                        asterisk[i][0] = ' ';
-                    if (i < 9){
-                        asterisk[i+1][0] = '*';
-                    }
-                    }
-                    num = rand.nextInt(30);
-                }
+                System.out.println();
             }
             System.out.println();
-            Thread.sleep(1000);
         }
     }
 
-    static char[][] makeStar() {
-        char[][] img = new char[10][1];
-        for (int x = 0; x < img[x].length; x++) {
-            img[x][0] = ' ';
+    static void loadStar(char[][] total) {
+        int spaces = rand.nextInt(20);
+        for (int i = 0; i < total.length; i++) {
+            for (int j = 0; j < total[i].length; j++) {
+                if (j < spaces + i) {
+                    total[i][j] = ' ';
+                }
+                else if (j == spaces + i) {
+                    total[i][j] = randomizeChar();
+                } else {
+                    total[i][j] = '|';
+                }
+            }
         }
-        img[0][0] = '\u26E7';
-        return img;
     }
 
-    static char[][] makeAsterisk() {
-        char[][] img = new char[10][1];
-        for (int x = 0; x < img[x].length; x++) {
-            img[x][0] = ' ';
+    static char randomizeChar() {
+        boolean choice = rand.nextBoolean();
+        if (choice) {
+            return '\u26E7';
+        } else {
+            return '*';
         }
-        img[0][0] = '*';
-        return img;
     }
 }
