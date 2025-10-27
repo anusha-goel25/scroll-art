@@ -8,3 +8,7 @@
   Shooting Stars - 1, because Ms. Feng helped my come up with the second version of the shooting star     design but she said that it was fine if I used it verbally and I also came up with it partially.
 
   Bear - 0, everything in it was original.
+
+More Comments After Adding Other People's Arts:
+
+I used both Maria and Ari's ascii arts in my project, so they should get credit for the llama and penguin respectively. Also, when I was trying to put Ari's art in my project, I had to turn it into a string from a string array, so I looked it up and this website: https://www.w3schools.com/java/ref_string_join.asp showed me how to join strings.
